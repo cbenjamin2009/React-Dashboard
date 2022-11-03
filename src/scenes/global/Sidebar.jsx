@@ -20,7 +20,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 // We are going to map through the items to create the component for each item that contains the title, 
 //link to, the icon, and state for which item is selected
 // You can use react router components with it. 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({ title, to, icon, selected, setSelected, linkClass }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -34,7 +34,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       icon={icon}
     >
       <Typography>{title}</Typography>
-      <Link to={to} />
+      <Link to={to} className={linkClass}/>
     </MenuItem>
   );
 };
@@ -135,6 +135,7 @@ const Sidebar = () => {
                     <Item
                         title="Manage Team"
                         to="/team"
+                        linkClass="sidebarLinkTeam"
                         icon={<PeopleOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
@@ -142,6 +143,7 @@ const Sidebar = () => {
                     <Item
                         title="Contacts Information"
                         to="/contacts"
+                        linkClass="sidebarLinkContacts"
                         icon={<ContactsOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
@@ -149,6 +151,7 @@ const Sidebar = () => {
                     <Item
                         title="Invoices Balances"
                         to="/invoices"
+                        linkClass="sidebarLinkInvoices"
                         icon={<ReceiptOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
@@ -159,6 +162,7 @@ const Sidebar = () => {
                     <Item
                         title="Profile Form"
                         to="/form"
+                        linkClass="sidebarLinkForm"
                         icon={<PersonOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
@@ -173,6 +177,7 @@ const Sidebar = () => {
                     <Item
                         title="FAQ Page"
                         to="/faq"
+                        linkClass="sidebarLinkFAQ"
                         icon={<HelpOutlineOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
